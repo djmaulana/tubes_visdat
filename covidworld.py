@@ -9,7 +9,7 @@ from bokeh.io import curdoc
 from bokeh.layouts import column, row, WidgetBox
 from bokeh.models.widgets import CheckboxGroup, Slider, RangeSlider, Tabs
 
-df = pd.read_csv("full_grouped.csv")
+df = pd.read_csv(r"full_grouped.csv")
 df["Date"] = pd.to_datetime(df["Date"])
 
 data = df[['Date','Country/Region','Confirmed','Deaths','Recovered','Active']]
@@ -89,6 +89,6 @@ src = buatdataset(lokasi_now, feature_select.value)
 c = buatplot(src, feature_select.value)
 
 # Pemasangan widget untuk interaktive visualisasi data covid
-controls = Column(feature_select, lokasi_selection)
+controls = WidgetBox(feature_select, lokasi_selection)
 layout = row(controls, c)
 curdoc().add_root(layout)
