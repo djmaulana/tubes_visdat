@@ -5,7 +5,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.models import HoverTool
 from bokeh.models.widgets import Tabs, Panel
 
-df = pd.read_csv(r'full_grouped.csv')
+df = pd.read_csv('full_grouped.csv')
 
 import pandas as pd
 from bokeh.plotting import figure
