@@ -9,7 +9,7 @@ from bokeh.io import curdoc
 from bokeh.layouts import column, row, WidgetBox
 from bokeh.models.widgets import CheckboxGroup, Slider, RangeSlider, Tabs
 
-df = pd.read_csv(r"full_grouped.csv")
+df = pd.read_csv("full_grouped.csv")
 df["Date"] = pd.to_datetime(df["Date"])
 
 data = df[['Date','Country/Region','Confirmed','Deaths','Recovered','Active']]
