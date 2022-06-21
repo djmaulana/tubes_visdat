@@ -1,15 +1,6 @@
 import pandas as pd
-from bokeh.plotting import figure, show
-from bokeh.io import output_file, output_notebook
-from bokeh.models import ColumnDataSource
-from bokeh.models import HoverTool
-from bokeh.models.widgets import Tabs, Panel
-
-df = pd.read_csv('full_grouped.csv')
-
-import pandas as pd
 from bokeh.plotting import figure
-from bokeh.models import ColumnDataSource, HoverTool, Select
+from bokeh.models import ColumnDataSource, HoverTool, Select,Column
 from bokeh.layouts import row, widgetbox
 from bokeh.palettes import Category20_16
 from bokeh.models.widgets import Tabs, Panel
@@ -18,6 +9,8 @@ from bokeh.io import curdoc
 from bokeh.layouts import column, row, WidgetBox
 from bokeh.models.widgets import CheckboxGroup, Slider, RangeSlider, Tabs
 
+df = pd.read_csv("full_grouped.csv")
+df["Date"] = pd.to_datetime(df["Date"])
 
 data = df[['Date','Country/Region','Confirmed','Deaths','Recovered','Active']]
 
@@ -96,6 +89,6 @@ src = buatdataset(lokasi_now, feature_select.value)
 c = buatplot(src, feature_select.value)
 
 # Pemasangan widget untuk interaktive visualisasi data covid
-controls = WidgetBox(feature_select, lokasi_selection)
+controls = Column(feature_select, lokasi_selection)
 layout = row(controls, c)
 curdoc().add_root(layout)
