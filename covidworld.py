@@ -19,7 +19,7 @@ from bokeh.layouts import column, row, WidgetBox
 from bokeh.models.widgets import CheckboxGroup, Slider, RangeSlider, Tabs
 
 
-df = df[['Date','Country/Region','Confirmed','Deaths','Recovered','Active']]
+data = df[['Date','Country/Region','Confirmed','Deaths','Recovered','Active']]
 
 lokasi = list(df['Country/Region'].unique())
 
